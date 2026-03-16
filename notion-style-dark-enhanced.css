@@ -27,6 +27,7 @@
 
   /* Colors */
   --bg-color: rgba(25, 25, 25, 1);
+  --blur-text-color: rgba(104, 104, 104, 1);
   --text-color: rgba(212, 212, 212, 1);
   --accent-color: rgba(156, 166, 168, 1);
   --accented-background-color: rgba(193, 202, 204, 1);
@@ -534,6 +535,36 @@ li p {
 
 #write blockquote p:last-child {
   margin-bottom: 0;
+}
+
+/* Focus Mode */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) *,
+.on-focus-mode li[cid]:not(.md-focus-container),
+.on-focus-mode .md-fences.md-focus .CodeMirror-code > *:not(.CodeMirror-activeline) *,
+.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) *,
+.on-focus-mode #typora-source .CodeMirror-code > *:not(.CodeMirror-activeline) * {
+  color: var(--blur-text-color) !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container) > input {
+  opacity: 0.2;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+  color: var(--text-color);
+}
+
+.on-focus-mode #write blockquote {
+  border-left-color: rgba(212, 212, 212, 0.18);
+  color: rgba(104, 104, 104, 0.9);
+}
+
+.on-focus-mode #write .md-focus blockquote,
+.on-focus-mode #write .md-focus-container blockquote {
+  border-left-color: var(--accent-color);
+  color: var(--text-color);
 }
 
 .md-alert,
@@ -1572,6 +1603,132 @@ li>.outline-item-active {
 .file-library-file-node:hover .file-node-content,
 .file-library-file-node.active .file-node-content {
   cursor: pointer;
+}
+
+/* Windows uses different font metrics and DPI rounding in the sidebar. */
+.os-windows #file-library-tree {
+  padding-top: 0.5714em;
+  padding-left: 0.8571em;
+  padding-right: 0.8571em;
+}
+
+.os-windows .sidebar-tab-btn {
+  font-size: 1.1429em !important;
+  line-height: 1.4286em !important;
+  margin-top: 0.8571em !important;
+}
+
+.os-windows .ty-sidebar-search-panel .searchpanel-search-option-btn {
+  top: 0.5714em;
+}
+
+.os-windows .file-library-file-node:hover .file-node-icon:after {
+  width: 0.5714em !important;
+}
+
+.os-windows .file-node-expanded > .file-node-children {
+  margin-left: 2.1071em;
+}
+
+.os-windows .file-tree-node > .file-node-background {
+  border-radius: 0.3571em;
+  margin-left: -0.8571em;
+}
+
+.os-windows #file-library-tree .file-node-root > .file-node-content {
+  margin-left: -0.2143em !important;
+}
+
+.os-windows #file-library-tree .file-tree-node > .file-node-content {
+  margin-left: -1.0714em;
+}
+
+.os-windows #file-library-tree .file-node-collapsed > .file-node-content,
+.os-windows #file-library-tree .file-node-expanded > .file-node-content {
+  margin-left: -0.6429em;
+}
+
+.os-windows #file-library-tree .file-node-content {
+  padding: 0.25em 0.5em;
+  padding-right: 2.6429em;
+  margin-bottom: 0.2143em;
+  height: 1.5em;
+}
+
+.os-windows .file-node-content .file-node-title {
+  padding-right: 0.6429em;
+}
+
+.os-windows #file-library-tree .file-node-root > .file-node-children {
+  margin-left: 1.8929em;
+}
+
+.os-windows .file-node-expanded > .file-node-content .fa-caret-down {
+  margin-right: 0.0714em;
+}
+
+.os-windows #file-library-tree .file-tree-node .file-node-icon {
+  padding-left: 0.2143em;
+}
+
+.os-windows #file-library-tree .file-node-open-state i {
+  padding-left: 0.2857em;
+}
+
+.os-windows #file-library-tree .file-node-content::before {
+  left: -1.4286em;
+  top: -0.5714em;
+  width: 0.0714em;
+  height: calc(100% + 0.3571em);
+}
+
+.os-windows #file-library-tree .file-node-content > .file-node-icon::after {
+  left: -1.4286em;
+  top: 1em;
+  width: 0.8571em;
+  height: 1.1429em;
+  background: transparent;
+}
+
+.os-windows #file-library-tree .active > .file-node-content > .file-node-icon::after {
+  width: 0.5714em;
+}
+
+.os-windows #file-library-tree .file-node-expanded > .file-node-content > .file-node-icon::after {
+  left: -1.4286em;
+  top: 1.0714em;
+  width: 0.5714em;
+}
+
+.os-windows #file-library-tree .file-node-collapsed > .file-node-content > .file-node-icon::after {
+  left: -1.4286em;
+  top: 1.0714em;
+  width: 0.8571em;
+}
+
+.os-windows #file-library-tree .file-node-children > div:last-of-type > .file-node-content > .file-node-icon::after {
+  border-bottom-left-radius: 0.2143em;
+  top: -0.0714em;
+}
+
+.os-windows #file-library-tree .file-node-children > div:last-of-type > .file-node-content::before {
+  height: 0.7143em;
+  top: -0.6429em;
+}
+
+.os-windows .file-node-background {
+  height: 1.5em;
+  border-radius: 0.3571em;
+}
+
+.os-windows .file-library-node {
+  margin: 0.2143em 0;
+}
+
+.os-windows .file-library-file-node:hover .file-node-background,
+.os-windows .file-library-file-node.active .file-node-background {
+  border-radius: 0.3571em;
+  height: 1.5em;
 }
 
 /* =========================================================================

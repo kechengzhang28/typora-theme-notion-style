@@ -19,6 +19,7 @@
   --accent-color: #9ca6a8;
   --accented-background-color: #c1cacc;
   --bg-color: #191919;
+  --blur-text-color: #686868;
   --border-color: #3d3d3d;
   --text-color: #d4d4d4;
   --link-color: #9c9c9c;
@@ -272,6 +273,34 @@ blockquote {
   position: relative;
   overflow: hidden;
   border-left: 4px solid var(--text-color);
+}
+
+/* focus mode */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) *,
+.on-focus-mode li[cid]:not(.md-focus-container),
+.on-focus-mode .md-fences.md-focus .CodeMirror-code > *:not(.CodeMirror-activeline) *,
+.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) *,
+.on-focus-mode #typora-source .CodeMirror-code > *:not(.CodeMirror-activeline) * {
+  color: var(--blur-text-color) !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container) > input {
+  opacity: 0.2;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+  color: var(--text-color);
+}
+
+.on-focus-mode blockquote {
+  border-left-color: rgba(212, 212, 212, 0.18);
+}
+
+.on-focus-mode .md-focus blockquote,
+.on-focus-mode .md-focus-container blockquote {
+  border-left-color: var(--text-color);
 }
 
 /* math block */
